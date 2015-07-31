@@ -16,15 +16,15 @@ TODO:
 5) produce matrix results for plant taxa
 
 DATA LIMITS:
-	1. filters: SubFamily = Mirinae(id:8150),Orthotylinae(id:6294),Phylinae(id:6295),Deraeocorinae(id:8163)
+##1. filters: SubFamily = Mirinae(id:8150),Orthotylinae(id:6294),Phylinae(id:6295),Deraeocorinae(id:8163)
 
-	2. geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
+2. geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
 	
-	3.	- secondary geographic filters: StateProv.StateProvUID = Arizona(id:4),Nevada(id:45),California(id:10),Baja California(id:6),Baja California Norte(id:7),Baja California Sur(id:8),Sonora(id:79)
+3.	- secondary geographic filters: StateProv.StateProvUID = Arizona(id:4),Nevada(id:45),California(id:10),Baja California(id:6),Baja California Norte(id:7),Baja California Sur(id:8),Sonora(id:79)
 	
-	4. two, three, four, and five or more unique localities per species
+4. two, three, four, and five or more unique localities per species
 	
-	5. insect determined to species
+5. insect determined to species
 
 
 ####++++++++++++++++++++++++++++++++++++++++++
