@@ -2,29 +2,29 @@
 
 Code for Area of Endemism project. Started 2014, updated July 2015.
 
-INCLUDED SCRIPTS: 
+##INCLUDED SCRIPTS: 
 endemism.php: query the AEC database for taxa and localities of interest.
 matrixOnlyLocality.php: formats interested localities and taxa from AEC in matrix format
 matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded.
 host_network_genus.php: confidence of associated taxa with host plants
 
-TODO:
+##TODO:
 1) create Miridae matrix for >2-5 collecting events
 2) get associated taxa, filter for only high confidence occurrences
 3) check associated taxa against tropicos valid name database
 4) query idigbio for those taxa
 5) produce matrix results for plant taxa
 
-DATA LIMITS:
-##1. filters: SubFamily = Mirinae(id:8150),Orthotylinae(id:6294),Phylinae(id:6295),Deraeocorinae(id:8163)
+##DATA LIMITS:
+1.	- filters: SubFamily = Mirinae(id:8150),Orthotylinae(id:6294),Phylinae(id:6295),Deraeocorinae(id:8163)
 
-2. geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
+2.	- geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
 	
 3.	- secondary geographic filters: StateProv.StateProvUID = Arizona(id:4),Nevada(id:45),California(id:10),Baja California(id:6),Baja California Norte(id:7),Baja California Sur(id:8),Sonora(id:79)
 	
-4. two, three, four, and five or more unique localities per species
+4.	- two, three, four, and five or more unique localities per species
 	
-5. insect determined to species
+5.	- insect determined to species
 
 
 ####++++++++++++++++++++++++++++++++++++++++++
