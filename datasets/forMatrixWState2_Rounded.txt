@@ -18062,7 +18062,15 @@ sp 822 [Phytocoris palmeri]
 -109.286	31.926
 -109.261	31.923
 
-sp 823 [Phytocoris praealtus]
+sp 823 [undetermined undetermined]
+-110.721	31.517
+-110.551	31.714
+-109.143	31.353
+-109.309	31.654
+-109.141	31.899
+-109.545	31.344
+
+sp 824 [Phytocoris praealtus]
 -109.280	31.904
 -109.261	31.923
 
