@@ -18,7 +18,7 @@
 	$DB =& MDB2::connect($dsn);
 	#if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
 	
-	$dp = fopen('forMatrixNAmerica5_Rounded.txt', 'w');
+	$dp = fopen('forMatrixNAmerica2_Rounded.txt', 'w');
 	
 	$value = insects();	
 		$countingNumber = 0;
