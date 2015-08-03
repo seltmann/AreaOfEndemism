@@ -30,7 +30,7 @@
 			$event_score = $row[0];
 			
 
-				If ($event_score >= 5){
+				If ($event_score >= 2){
 					echo $Genus ."\t" . $Species . "\t" . $event_score . "\n";
 					$matrixOutputValue .= matrixOutput($species_id,$countingNumber,$Genus,$Species);
 					$countingNumber = $countingNumber + 1;
