@@ -20,7 +20,7 @@
 	$DB =& MDB2::connect($dsn);
 	if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
 	
-	$fp = fopen('dataAllEvents4.tsv', 'w');
+	$fp = fopen('dataAllEventsWState2.tsv', 'w');
 	// $dp = fopen('forMatrixBasin4.txt', 'w');
 	
 	$value = insects();	
@@ -52,7 +52,7 @@
 			$event_score = locality_counts($species_id);
 			
 
-				If ($event_score >= 4){
+				If ($event_score >= 2){
 						$data_written .= $Subfamily . "\t" . $Tribe ."\t" . $Genus ."\t" . $Species . "\t" . $species_id . "\t" . $hostFamily ."\t" . $hostGenus ."\t" . $hostSpecies ."\t" . $host_species_id  . "\t" . $country ."\t" . $StateProv ."\t" . $SubDiv . "\t" . $DLong  . "\t" . $DLat . "\t" . $DateStart . "\t" . $collectingUID . "\t" . $LocalityStr ."\t" . $LocalityUID ."\t" . $LocAccuracy . "\t" . $event_score . "\t" . $collecting_score  . "\t" . all_distinct_counts($species_id) ."\n"; 
 						
 				echo $Genus ."\t" . $Species ."\n";
@@ -109,6 +109,8 @@ function insects(){
 	global $DB;
 	$resultsGetName = $DB->query("Select distinct T4.TaxName as Subfamily, T3.TaxName as Tribe, T1.TaxName as Genus, T2.TaxName as Species, T2.MNLUID as species_id, F4.HostTaxName as HostFamily, F1.HostTaxName as HostGenus, F2.HostTaxName as HostSpecies, F2.HostMNLUID, CN.Country,SP.StateProv,SD.SubDivStr as SubDiv,L1.DLat,L1.DLong,CE.DateStart,CE.ColEventUID,L1.LocalityStr as localityStr,L1.LocalityUID as localityUID,L1.LocAccuracy as localityAccuracy FROM Specimen S1 left join MNL T1  ON S1.Genus = T1.MNLUID
 left join MNL T2  ON S1.Species = T2.MNLUID left join MNL T3 ON S1.Tribe=T3.MNLUID left join MNL T4 on S1.Subfamily=T4.MNLUID left join MNL T5 on T4.ParentID=T5.MNLUID left join Locality L1 on S1.Locality=L1.LocalityUID left join Flora_MNL F1 ON S1.HostG=F1.HostMNLUID left join Flora_MNL F2 ON S1.HostSp=F2.HostMNLUID left join Flora_MNL F3 ON S1.HostSSp=F3.HostMNLUID left join Flora_MNL F4 ON S1.HostF=F4.HostMNLUID left join SubDiv SD on L1.SubDivUID=SD.SubDivUID left join StateProv SP on SD.StateProvUID=SP.StateProvUID left join colevent CE on S1.ColEventUID=CE.ColEventUID left join Collector C1 on CE.Collector=C1.CollectorUID left join Country CN on SP.CountryUID=CN.UID left join HostCommonName HC on S1.HostCName=HC.CommonUID where T2.TaxName not like '%#%' and T2.TaxName not like '%sp.%'and T2.TaxName != 'sp' and T2.TaxName not like '%\_%' and T2.TaxName not like '%spp.%' and T2.TaxName != 'unknown' and DLat != '0.00000' and L1.LocalityStr !='unknown' and (SP.StateProvUID = '4' or SP.StateProvUID = '45' or SP.StateProvUID = '10' or SP.StateProvUID = '6' or SP.StateProvUID = '7' or SP.StateProvUID = '8' or SP.StateProvUID = '79') and (S1.Subfamily = '6295' or S1.Subfamily = '8150' or S1.Subfamily = '6294' or S1.Subfamily = '8163')");
+#(CN.UID = '2' or CN.UID = '8' or CN.UID = '11')
+#(SP.StateProvUID = '4' or SP.StateProvUID = '45' or SP.StateProvUID = '10' or SP.StateProvUID = '6' or SP.StateProvUID = '7' or SP.StateProvUID = '8' or SP.StateProvUID = '79')
 		if (PEAR::isError($resultsGetName)) {
 			error_log("DB Error - Invalid query for insects");
 			exit;
