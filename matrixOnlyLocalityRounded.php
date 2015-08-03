@@ -13,10 +13,10 @@
 	require_once("MDB2.php");
 
 	// === change this to run from your database credentials ===
-	require_once("../../../UniversalConnector.php");
+	require_once("../../UniversalConnector.php");
 	// === Main database connection and error handling ===
 	$DB =& MDB2::connect($dsn);
-	if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
+	#if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
 	
 	$dp = fopen('forMatrixNAmerica5_Rounded.txt', 'w');
 	
