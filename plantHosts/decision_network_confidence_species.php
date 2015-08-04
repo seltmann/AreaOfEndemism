@@ -12,7 +12,7 @@ require_once("MDB2.php");
 // === change this to run from your database credentials ===
 ##add conector
 #require_once("../../../../UniversalConnector.php");
- require_once("../../../UniversalConnector.php");
+require_once("../../../UniversalConnector.php");
 
 // === Main database connection and error handling ===
 $DB =& MDB2::connect($dsn);
@@ -82,13 +82,13 @@ function relative_medium($i_species_id, $count_medium){
 	if (PEAR::isError($results)) { die("DB Error - Invalid query for relative_medium" . $results->getMessage()); }
 	while ($row =& $results->fetchRow()) {
 		$id = $row[0];
-		$coll_number_same_h = $row[15];
-		$coll_percent = $row[16];
-		$rel_confidence = $row[24];
+		$coll_number_same_h = $row[16];
+		$coll_percent = $row[17];
+		$rel_confidence = $row[22];
 		$h_family_id = $row[12];
-		$h_n_specimens = $row[17];
-		$h_voucher = $row[22];
-		$i_j_same_col = $row[21];
+		$h_n_specimens = $row[18];
+		$h_voucher = $row[21];
+		$i_j_same_col = $row[20];
 		
 		$update_value = $rel_confidence;
 		if ($h_n_specimens > 25 && $rel_confidence != 'HIGH') $update_value = 'MEDIUM_HIGH';
