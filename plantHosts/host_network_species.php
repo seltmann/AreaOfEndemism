@@ -27,7 +27,7 @@ require_once("MDB2.php");
  
 // === change this to run from your database credentials ===
 ##add connector for database
-	require_once("../../UniversalConnector.php");  
+	require_once("../../../UniversalConnector.php");  
 
 // === Main database connection and error handling ===
 $DB =& MDB2::connect($dsn);
