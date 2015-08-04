@@ -4,6 +4,12 @@ Code for Area of Endemism project. Started 2014, updated July 2015.
 
 https://github.com/seltmann/AreaOfEndemism
 
+##INCLUDED FOLDERS:
+mapping - to check geo coordinates for both insect and plant data
+plantHosts - confidences of associated plant hosts from AEC
+localityMatrix - creation of data matrix for software
+old - archive (will be deleted)
+
 ##INCLUDED SCRIPTS: 
 endemism.php: query the AEC database for taxa and localities of interest.
 matrixOnlyLocality.php: formats interested localities and taxa from AEC in matrix format
