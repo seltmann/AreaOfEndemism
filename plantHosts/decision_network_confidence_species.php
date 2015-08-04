@@ -11,19 +11,19 @@ require_once("MDB2.php");
  
 // === change this to run from your database credentials ===
 ##add conector
-require_once("../../../UniversalConnector.php");
+require_once("../../../../UniversalConnector.php");
  
 // === Main database connection and error handling ===
 $DB =& MDB2::connect($dsn);
 if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
-	require_once("../../../UniversalConnector.php"); 
+
 
 $unique_associations = find_stuff_out();
 	while ($row =& $unique_associations->fetchRow()) {
 		$id = $row[0];
-		$coll_number_same_h = $row[15];
-		$coll_percent = $row[16];
-		$rel_confidence = $row[24];
+		$coll_number_same_h = $row[16];
+		$coll_percent = $row[17];
+		$rel_confidence = $row[22];
 		
 		is_high_medium_low($coll_percent,$id,$coll_number_same_h,$rel_confidence);		
 	}
@@ -50,8 +50,8 @@ $unique_associations = find_stuff_out();
 // juvy involved? +1
 // number of specimens collected > number collecting events? +1
 # id $row[0]
-# h_genus $row[1]
-# h_species $row[2]
+## h_species $row[1]
+## h_genus $row[2]
 # h_family $row[3]
 # i_species $row[4]
 # i_genus $row[5]
@@ -64,16 +64,14 @@ $unique_associations = find_stuff_out();
 # h_family_id $row[12]
 # h_genus_id $row[13]
 # h_species_id $row[14]
-# coll_number_same_h $row[15]
-# coll_percent $row[16]
-# h_n_specimens $row[17]
-# i_h_same_g $row[18]
-# i_h_same_f $row[19]
-# i_j_h_col_event $row[20]
-# i_j_same_col $row[21]
-# h_voucher $row[22]
-# coll_total_i $row[23]
-# rel_confidence $row[24]
+# coll_total_i $row[15]
+# coll_number_same_h $row[16]
+# coll_percent $row[17]
+# h_n_specimens $row[18]
+# i_j_h_col_event $row[19]
+# i_j_same_col $row[20]
+# h_voucher $row[21]
+# rel_confidence $row[22]
 
 
 function relative_medium($i_species_id, $count_medium){

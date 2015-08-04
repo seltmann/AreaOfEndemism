@@ -3,10 +3,6 @@
 #decision tree code for host/associate confidence at host species level (will need to modify for host genus level)
 #trial 1, October 2, 2013
 
-//===table columns in host_network_species table
-//====i_family, i_tribe, i_genus, i_species, h_family, h_genus, h_species
-//====i_family_id, i_tribe_id, i_genus_id, i_species_id, h_family_id, h_genus_id, h_species_id
-
 //====coll_total_i - total number of times the insect was collected at any collecting event, indifferent of host collected on
 //====coll_number_same_h - number of times collected at different collecting events, of host (at species level) + insect (at species level) - returns numberic value
 //====coll_percent - percent of total colevents host (at species level) + insect (at species level)
@@ -14,14 +10,6 @@
 //====h_n_specimens - greatest number of specimens found at single collecting event (at species level) (total)
 //====i_j_same_col - number of total juveniles are found on host (at species level) - returns numberic value
 //====h_voucher - occurrence is verified by vouchered host specimen - number of specimens that were vouchered
-
-//==  INSERT INTO `pbi_locality`.`host_network_species` (`id`, `h_species`, `h_genus`, `h_family`, `i_species`, `i_genus`, `i_tribe`, `i_family`, `i_family_id`, `i_tribe_id`, `i_genus_id`, `i_species_id`, `h_family_id`, `h_genus_id`, `h_species_id`, `coll_number_same_h`, `coll_percent`, `h_n_specimens`, `i_h_same_g`, `i_h_same_f`, `i_j_h_col_event`, `i_j_same_col`, `h_voucher`) VALUES (NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'FALSE', 'FALSE', '0', '0', 'FALSE');
-
-
-//alter table host_network add column coll_total_i int(11) not null default 0 after h_species_id;
-//ALTER TABLE host_network ADD COLUMN confidence int(11) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
-####################add distinct number of hosts found for a given species in total
-####################add for what level information is calculated
 
 require_once("MDB2.php");
  
