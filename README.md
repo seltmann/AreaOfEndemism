@@ -16,10 +16,11 @@ matrixOnlyLocality.php: formats interested localities and taxa from AEC in matri
 matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded.
 host_network_genus.php: confidence of associated taxa with host plants
 
-##TODO:
+##TODO/METHODS:
 1) create Miridae matrix for >2-5 collecting events
-2) get associated taxa, filter for only high confidence occurrences
-3) check associated taxa against tropicos valid name database
+	- Graph and correct lat/long coordinates of events. Should we include hawaii and canada?
+2) get associated taxa for all N. American taxa in those subfamilies identified to species.
+3) check associated taxa against iplant taxon name resolution service (http://tnrs.iplantcollaborative.org/TNRSapp.html) valid name database. Correct names in AEC.
 4) query idigbio for those taxa
 5) produce matrix results for plant taxa
 

@@ -7,7 +7,7 @@
 //h_n_specimens = count of max number of specimens found on a single collecting event with host/insect combination (>10 = high)
 //insert confidence values into rel_confidence field: HIGH, MEDIUM, LOW
 
-//export echo "select * from host_network_species where rel_confidence != 'LOW'" | mysql -u root -p -D pbi_locality > plantHostsNOTLOW.tsv
+//export echo "select * from host_network_species" | mysql -u root -p -D pbi_locality > plantHosts.tsv
 
 require_once("MDB2.php");
  
