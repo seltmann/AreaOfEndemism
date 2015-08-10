@@ -19,7 +19,7 @@
 	$DB =& MDB2::connect($dsn);
 	#if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
 	
-	$dp = fopen('forMatrixNA2_Rounded.txt', 'w');
+	$dp = fopen('forMatrixNA10_Rounded.txt', 'w');
 	
 	$value = insects();	
 		$countingNumber = 0;
@@ -31,7 +31,7 @@
 			$event_score = $row[0];
 			
 
-				If ($event_score >= 2){
+				If ($event_score >= 10){
 					echo $Genus ."\t" . $Species . "\t" . $event_score . "\n";
 					$matrixOutputValue .= matrixOutput($species_id,$countingNumber,$Genus,$Species);
 					$countingNumber = $countingNumber + 1;
