@@ -1,0 +1,35 @@
+#Updates for pbi_locality database (area of endemism) - run in this order
+#insect species updates for names not matching
+
+
+update Specimen set genus="6088" where species="34913";
+update Specimen set genus="6088" where species="35224";
+update Specimen set genus="6088" where species="34915";
+update Specimen set genus="6088" where species="35176";
+update Specimen set genus="6088" where species="35223";
+update Specimen set genus="6088" where species="35200";
+update Specimen set genus="6088" where species="1616";
+update Specimen set genus="5802" where species="39622";
+update Specimen set genus="5802" where species="39178";
+update Specimen set genus="5802" where species="39183";
+update Specimen set genus="5802" where species="39186";
+update Specimen set genus="5802" where species="814";
+update Specimen set species="1793" where species="34913";
+update Specimen set species="1828" where species="35224";
+update Specimen set species="1857" where species="34915";
+update Specimen set species="1898" where species="35176";
+update Specimen set species="2092" where species="35223";
+update Specimen set species="2103" where species="35200";
+update Specimen set species="70015" where species="1616";
+update Specimen set species="709" where species="39622";
+update Specimen set species="758" where species="39178";
+update Specimen set species="792" where species="39183";
+update Specimen set species="737" where species="39186";
+update Specimen set species="737" where species="814";
+
+#remove homonym
+delete from Specimen where species='303';
+delete from Specimen where species='4652';
+
+#remove all but Miridae (except on remote server)
+select distinct T5.TaxName from Specimen left join MNL T4 on Specimen.Subfamily=T4.MNLUID left join MNL T5 on T4.ParentID=T5.MNLUID;
