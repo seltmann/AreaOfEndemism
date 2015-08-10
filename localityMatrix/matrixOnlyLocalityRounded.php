@@ -13,12 +13,13 @@
 	require_once("MDB2.php");
 
 	// === change this to run from your database credentials ===
-	require_once("../../UniversalConnector.php");
+	#require_once("../../UniversalConnector.php");
+	require_once("../../../UniversalConnector.php");
 	// === Main database connection and error handling ===
 	$DB =& MDB2::connect($dsn);
 	#if (PEAR::isError($DB)) { handleError($DB->getMessage()); }
 	
-	$dp = fopen('forMatrixWState2_Rounded.txt', 'w');
+	$dp = fopen('forMatrixWState5_Rounded.txt', 'w');
 	
 	$value = insects();	
 		$countingNumber = 0;
@@ -30,7 +31,7 @@
 			$event_score = $row[0];
 			
 
-				If ($event_score >= 2){
+				If ($event_score >= 5){
 					echo $Genus ."\t" . $Species . "\t" . $event_score . "\n";
 					$matrixOutputValue .= matrixOutput($species_id,$countingNumber,$Genus,$Species);
 					$countingNumber = $countingNumber + 1;
