@@ -46,3 +46,28 @@ head(uniquePlantHostsMEDIUMHIGH)
 write.table(uniquePlantHostsMEDIUMHIGH,file = "uniquePlantHostsMEDIUMHIGH.tsv", sep = "\t",col.names = FALSE, append = FALSE, quote = FALSE, row.names = FALSE)
 
 help(write.table)
+
+###========================= for network analysis
+setwd("~/Desktop/Dropbox/area_of_endemismProject/code/endemismCodeKatja/plantHosts")
+plantHosts <- read.table("plantHosts.tsv", header = TRUE, sep = "\t" ,fill = TRUE, stringsAsFactors = FALSE)
+PlantscientificName <- paste(plantHosts$h_genus,plantHosts$h_species,sep=' ')
+plantHosts <- cbind(plantHosts,PlantscientificName)
+InsectscientificName <- paste(plantHosts$i_genus,plantHosts$i_species,sep=' ')
+
+plantHosts <- cbind(plantHosts,InsectscientificName)
+
+head(plantHosts)
+
+forNetworka <- plantHosts[,c(24:25)]
+forNetworkb <- plantHosts[,c(25:24)]
+forNetowrkAll <- rbind(forNetworka,forNetworkb)
+plotweb(forNetowrkAll)
+
+head(forNetowrkAll)
+m <- network(forNetowrkAll)
+plot(m)
+
+
+library(bipartite)
+library('enaR')
+head(plantHosts)
