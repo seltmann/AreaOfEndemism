@@ -1,26 +1,27 @@
 #Mapping of time series of all arthropod collecting events
 #@seltmann
-
-#May 1 2014
-
-
-#check library
 library(maps)
 library(mapdata)
+setwd("~/Desktop/Dropbox/area_of_endemismProject/code/endemismCodeKatja/mapping")
+rm(list=ls())
 
-#clear new plot
-plot.new()
 
 #read in data
-samps <- read.table("mapping/localitiesGraph.txt")
+samps<- read.table("stateCheck.txt", header = FALSE, sep = "\t" ,fill = TRUE, stringsAsFactors = FALSE)
+
+
 head(samps)
-colnames(samps) <- c("long","lat")
+
+colnames(samps) <- c("insect", "state", "long", "lat")
 
 #check data
 head(samps$lat)
 
+#clear new plot
+plot.new()
+
 #write to pdf file
-pdf(file='MiridaeState.pdf',height=10, width=10)
+pdf(file='MiridaeStateMap.pdf',height=10, width=10)
 
 	map("worldHires","Canada", col="gray90", xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE)  
 	map("worldHires","Mexico", col="gray90", xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE,add=TRUE)
@@ -41,9 +42,30 @@ for (x in unique(samps$state)) {
 dev.off()
 help(rect)
 
+for (x in unique(samps$state)) {
+  samps.subset <- subset(samps, state == x)
+  
+  pdf(file=paste(x,'.pdf',sep=""),height=10, width=10)
+  map("worldHires","Canada", col="gray90", xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE)  
+  map("worldHires","Mexico", col="gray90", xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE,add=TRUE)
+  map("worldHires","usa", col="gray90", xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE,add=TRUE)
+  map("state", col="gray95", boundary = False, xlim = range(samps$lon), ylim = range(samps$lat),fill=TRUE, add=TRUE)
+  box()
+  c = sample(colors(), 1) #random color
+  points(samps.subset$lon, samps.subset$lat, pch=19, col=c
+         , cex=.3)
+  
+  dev.off()
+}
+
 
 #simple lat/long scatter plot and check lat/long for north america
 
 plot(samps)
 subset(samps, samps$lat < 0)
 subset(samps,samps$long > 0)
+
+#=============================
+#Clusters by state
+attach(samps)
+plot(samps$long,samps$lat)

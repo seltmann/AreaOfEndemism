@@ -64,10 +64,10 @@ forNetowrkAll <- rbind(forNetworka,forNetworkb)
 plotweb(forNetowrkAll)
 
 head(forNetowrkAll)
-m <- network(forNetowrkAll)
+m <- network(forNetowrkAll,directed=FALSE,bipartite = )
 plot(m)
 
-
+help(network)
 library(bipartite)
 library('enaR')
 head(plantHosts)
