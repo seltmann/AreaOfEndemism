@@ -1,26 +1,33 @@
-#  AreaOfEndemism
+#  AreaOfEndemism Project
+This is the repository of code for Area of Endemism project. The project started 2014, and is still in progress. Contact @seltmann if you have any questions about the data and scripts in this repository.
 
-Code for Area of Endemism project. Started 2014, updated July 2015.
 https://github.com/seltmann/AreaOfEndemism
 
-##INCLUDED FOLDERS:
 
+##SCRIPTS USED TO PRODUCE DATASETS: 
+matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded to three decimal points.
+host_network_genus.php: finds relationship hypothesis between plants and plant bugs
+decision_network_confidence_species.php: applies confidence interval to those insect/host relationships.
+geoAPI.R: retrieves all of the plant data from iDigBio using genus and species fields that has coordinates. Then formats it by removing all unnecessary additional fields.
+geoCheck.R: maps geocoordinates by state to help look for outlying data points.
 
-##USED INCLUDED SCRIPTS: 
-endemism.php: query the AEC database for taxa and localities of interest.
-matrixOnlyLocality.php: formats interested localities and taxa from AEC in matrix format
-matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded.
-host_network_genus.php: confidence of associated taxa with host plants
-geoCheck.R: maps geocoordinates by state
+##DESCRIPTION OF INCLUDED DATASETS:
+forMatrixNA5_Rounded.txt: file produced by the matrixOnlyLocalityRounded.php script. It is the initial output of plant bugs for analysis, formatted for NDM/VNDM software.
 
 ##TODO/METHODS:
-1) create Miridae matrix for >5 collecting events
-	- Graph and correct lat/long coordinates of events.
+1) create Miridae locality matrix for >2-5 collecting events
+
 2) get associated taxa for all N. American taxa in those subfamilies identified to species.
-3) check associated taxa against iplant taxon name resolution service (http://tnrs.iplantcollaborative.org/TNRSapp.html) valid name database. Correct names in AEC.
+	* edited taxon names, Orthotyplus replaced Melanotrichus, and generate a unique dataset for insect names in >=5 [forMatrixNA5_RoundedTaxaList.txt]; updates to database are located in the mysqlUpdatesForDatabasePreTest.sql file.
+	* build host_network_species table in AOE database using host_network.sql file
+	* run host_network_species.php script
+	* run decision_network_confidence_species.php on server
+	* export host_network_species table for review. check associated taxa against iplant taxon name resolution service (http://tnrs.iplantcollaborative.org/TNRSapp.html) valid name database. Correct names in AEC [iterative]. And review with Michael & Toby.
+
 4) query idigbio for those plant taxa and related EOL synonyms, removing ambiguous names
+
 5) produce matrix results for plant taxa for >2-5 collecting events
-6) create Apidae matrix for >2-5 collecting events from AEC bee project
+
 
 ##DATA LIMITS:
 1.	- filters: SubFamily = Mirinae(id:8150),Orthotylinae(id:6294),Phylinae(id:6295),Deraeocorinae(id:8163)
@@ -33,4 +40,5 @@ geoCheck.R: maps geocoordinates by state
 	
 5.	- insect determined to species
 
+6. after limits working with 476547 specimen records in AEC
 
