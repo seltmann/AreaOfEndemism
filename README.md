@@ -4,10 +4,7 @@ Code for Area of Endemism project. Started 2014, updated July 2015.
 https://github.com/seltmann/AreaOfEndemism
 
 ##INCLUDED FOLDERS:
-mapping - to check geo coordinates for both insect and plant data
-plantHosts - confidences of associated plant hosts from AEC
-localityMatrix - creation of data matrix for software
-old - archive (will be deleted)
+
 
 ##USED INCLUDED SCRIPTS: 
 endemism.php: query the AEC database for taxa and localities of interest.
@@ -17,8 +14,8 @@ host_network_genus.php: confidence of associated taxa with host plants
 geoCheck.R: maps geocoordinates by state
 
 ##TODO/METHODS:
-1) create Miridae matrix for >2-5 collecting events
-	- Graph and correct lat/long coordinates of events. Should we include hawaii and canada?
+1) create Miridae matrix for >5 collecting events
+	- Graph and correct lat/long coordinates of events.
 2) get associated taxa for all N. American taxa in those subfamilies identified to species.
 3) check associated taxa against iplant taxon name resolution service (http://tnrs.iplantcollaborative.org/TNRSapp.html) valid name database. Correct names in AEC.
 4) query idigbio for those plant taxa and related EOL synonyms, removing ambiguous names
@@ -37,13 +34,3 @@ geoCheck.R: maps geocoordinates by state
 5.	- insect determined to species
 
 
-####++++++++++++++++++++++++++++++++++++++++++
-ADDITIONAL ANALYSIS IDEAS:
-1) Find the California Floristic Provence shape file and limit known taxa based on that geography
-2) Use endemic plant list from Harrison, Susan "Plant and Animal Endemism in California" to compare with known results
-3) Identify several restoration habitats (ie vernal pools) and apply same criteria
-4) Summarize endemic genera of insects based on endemic plant list
-5) Summarize known mediterranean climate species (genera) in world geography
-6) NatureServ hotspot map?
-7) plot species/actual evapotranspiration
-8) shape file of central valley?
