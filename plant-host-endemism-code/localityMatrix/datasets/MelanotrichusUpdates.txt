@@ -1,0 +1,94 @@
+Melanotrichus updates:
+
+Update Specimen set  species="78939" where  species="36676";
+Update Specimen set  species="1793" where  species="34913";
+
+Update Specimen set  species="1810" where  species="35051";
+Update Specimen set  species="1811" where  species="33640";
+
+Update Specimen set  species="1828" where  species="35224";
+Update Specimen set  species="1829" where  species="33652";
+
+Update Specimen set  species="1831" where  species="34914";
+Update Specimen set  species="1845" where  species="35071";
+
+Update Specimen set  species="1855" where  species="33751";
+Update Specimen set  species="1857" where  species="34915";
+
+Update Specimen set  species="1859" where  species="34919";
+Update Specimen set  species="1898" where  species="35176";
+
+Update Specimen set  species="1905" where  species="34918";
+Update Specimen set  species="1927" where  species="35198";
+
+Update Specimen set  species="1939" where  species="33749";
+Update Specimen set  species="1963" where  species="34916";
+
+Update Specimen set  species="1985" where  species="33747";
+Update Specimen set  species="1987" where  species="35222";
+
+Update Specimen set  species="1988" where  species="33746";
+Update Specimen set  species="1993" where  species="34917";
+
+Update Specimen set  species="2025" where  species="35219";
+Update Specimen set  species="88051" where  species="34920";
+
+Update Specimen set  species="78939" where  species="37775";
+Update Specimen set  species="2092" where  species="35223";
+
+Update Specimen set  species="2093" where  species="35199";
+Update Specimen set  species="2103" where  species="35200";
+
+Update Specimen set  species="2120" where  species="35220";
+Update Specimen set  species="2122" where  species="35221";
+
+Update Specimen set  species="2126" where  species="33748";
+Update Specimen set  species="70015" where  species="1616";
+
+Update Specimen set  species="2130" where  species="7098";
+Update Specimen set  species="2138" where  species="35218";
+
+Update Specimen set genus="6088" where  species="1793";
+Update Specimen set genus="6088" where  species="1810";
+
+Update Specimen set genus="6088" where  species="1811";
+Update Specimen set genus="6088" where  species="1828";
+
+Update Specimen set genus="6088" where  species="1829";
+Update Specimen set genus="6088" where  species="1831";
+
+Update Specimen set genus="6088" where  species="1845";
+Update Specimen set genus="6088" where  species="1855";
+
+Update Specimen set genus="6088" where  species="1857";
+Update Specimen set genus="6088" where  species="1859";
+
+Update Specimen set genus="6088" where  species="1898";
+Update Specimen set genus="6088" where  species="1905";
+Update Specimen set genus="6088" where  species="1927";
+
+Update Specimen set genus="6088" where  species="1939";
+Update Specimen set genus="6088" where  species="1963";
+Update Specimen set genus="6088" where  species="1985";
+
+Update Specimen set genus="6088" where  species="1987";
+Update Specimen set genus="6088" where  species="1988";
+Update Specimen set genus="6088" where  species="1993";
+
+Update Specimen set genus="6088" where  species="2025";
+Update Specimen set genus="6088" where  species="88051";
+Update Specimen set genus="6088" where  species="78939";
+
+Update Specimen set genus="6088" where  species="2092";
+Update Specimen set genus="6088" where  species="2093";
+Update Specimen set genus="6088" where  species="2103";
+
+Update Specimen set genus="6088" where  species="2120";
+Update Specimen set genus="6088" where  species="2122";
+Update Specimen set genus="6088" where  species="2126";
+
+Update Specimen set genus="6088" where  species="70015";
+Update Specimen set genus="6088" where  species="2130";
+Update Specimen set genus="6088" where  species="2138";
+
+
