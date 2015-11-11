@@ -14,5 +14,5 @@ references/
 materials for ms figures and tables 10Nov2015/
 analyses/
 *.pdf
-*/plantHosts/rawDatasetsV2/
-./code/VNDM-NDM
+plantHosts/rawDatasetsV2/*
+code/VNDM-NDM/*
