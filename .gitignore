@@ -1,0 +1,18 @@
+old/
+UniversalConnector.php
+*.xlsx
+*.xls
+*.Rhistory
+*.Rapp.history
+.dropbox
+documentation/
+data/
+DivaGISmaps/
+references/
+*Icon*
+*.docx
+materials for ms figures and tables 10Nov2015/
+analyses/
+*.pdf
+plantHosts/rawDatasetsV2/*
+code/VNDM-NDM/*
