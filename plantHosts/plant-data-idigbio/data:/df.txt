@@ -1,1 +1,0 @@
-NA	"preservedspecimen"	NA	"des00025161"	"magnoliopsida"	NA	"edb9860c-c481-4d19-88cc-224a536ebcd4"	NA	"f. chiang; f. f. medrano, v. jaramillo, p. davila"	NA	"north america"	1000	"mexico"	"mex"	NA	"1979-07-27T00:00:00+00:00"	"2015-01-16T18:52:28.325000+00:00"	0.333333333333333	NA	NA	NA	NA	"5343909c263331cd13279f59d2e3990af83be62c"	"1979-07-27"	"convolvulaceae"	NA	
