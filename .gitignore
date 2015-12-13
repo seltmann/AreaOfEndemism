@@ -16,3 +16,7 @@ analyses/
 *.pdf
 plantHosts/rawDatasetsV2/*
 code/VNDM-NDM/*
+localityMatrix/
+plantHosts/
+sqlBackups/
+*.zip
