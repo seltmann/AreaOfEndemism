@@ -1,0 +1,568 @@
+#updates to planthosts table
+#insert into mysql database using load data all.tsv
+
+#SELECT genus,specificEpithet, count(locality) as cnt FROM planthosts GROUP BY locality HAVING cnt > 1
+
+#SELECT genus,specificEpithet, coreid, count(coreid) as cnt FROM planthosts GROUP BY coreid HAVING cnt > 1
+
+#echo "select distinct country from planthosts;" | mysql -u root -D AOE > ~/Desktop/country.tsv
+
+update planthosts set country ='mexico' where country ='méxico';
+update planthosts set country ='united states' where country ='estados unidos';
+update planthosts set country ='canada' where country ='canadá';
+update planthosts set country ='canada' where country ='canada, british columbia';
+update planthosts set country ='united states' where country ='e.u.a.';
+delete from planthosts where country = "madagascar";
+delete from planthosts where country = "finland";
+delete from planthosts where country = "brasil";
+delete from planthosts where country = "poland";
+delete from planthosts where country = "austria";
+delete from planthosts where country = "china";
+delete from planthosts where country = "argentina";
+delete from planthosts where country = "österreich";
+delete from planthosts where country = "brazil";
+delete from planthosts where country = "australia";
+delete from planthosts where country = "dominican republic";
+delete from planthosts where country = "georgia";
+delete from planthosts where country = "paraguay";
+delete from planthosts where country = "chile";
+delete from planthosts where country = "france";
+delete from planthosts where country = "cuba";
+delete from planthosts where country = "spain";
+delete from planthosts where country = "sweden";
+delete from planthosts where country = "germany";
+delete from planthosts where country = "italy";
+delete from planthosts where country = "japan";
+delete from planthosts where country = "south korea";
+delete from planthosts where country = "south africa";
+delete from planthosts where country = "pakistan";
+delete from planthosts where country = "egypt";
+delete from planthosts where country = "navassa island";
+delete from planthosts where country = "belize";
+delete from planthosts where country = "northern mariana islands";
+delete from planthosts where country = "honduras";
+delete from planthosts where country = "netherlands antilles";
+delete from planthosts where country = "palau";
+delete from planthosts where country = "peru";
+delete from planthosts where country = "bahamas";
+delete from planthosts where country = "fiji";
+delete from planthosts where country = "bolivia";
+delete from planthosts where country = "ecuador";
+delete from planthosts where country = "pitcairn";
+delete from planthosts where country = "kiribati";
+delete from planthosts where country = "united kingdom";
+delete from planthosts where country = "osterreich";
+delete from planthosts where country = "guatemala";
+delete from planthosts where country = "netherlands";
+delete from planthosts where country = "haiti";
+delete from planthosts where country = "russia";
+delete from planthosts where country = "greenland";
+delete from planthosts where country = "switzerland";
+delete from planthosts where country = "armenia";
+delete from planthosts where country = "suécia";
+delete from planthosts where country = "bolívia";
+delete from planthosts where country = "turkey";
+delete from planthosts where country = "venezuela";
+delete from planthosts where country = "israel";
+delete from planthosts where country = "kyrgyzstan";
+delete from planthosts where country = "uzbekistan";
+delete from planthosts where country = "french polynesia";
+delete from planthosts where country = "u.s. administered islands (micronesia)";
+delete from planthosts where country = "puerto rico";
+delete from planthosts where country = "virgin islands (u.s.)";
+delete from planthosts where country = "u.s. administered islands (polynesia)";
+
+update planthosts set country='united states' where coreid='e96bdca2-153d-485f-bdb9-96bd748797eb';
+update planthosts set country='united states' where coreid='d678c3a0-0eee-4883-a9df-8fe9585b8095';
+#delete from planthosts where country='NA';
+#delete from planthosts where decimalLatitude is NULL;
+select distinct country from planthosts;
+
+#########################################
+#echo "select distinct county from planthosts where country='united states';" | mysql -u root -D AOE > ~/Desktop/country.tsv
+select distinct county from planthosts where country='united states';
+
+#echo "select distinct stateProvince from planthosts where country='united states' order by stateProvince;" | mysql -u root -D AOE > ~/Desktop/stateProvince.tsv
+update planthosts set stateProvince ='new mexico' where stateProvince ='new mexica';
+update planthosts set stateProvince ='hawaii' where stateProvince ='hawai`i';
+delete from planthosts where stateProvince='crawford';
+#########################################
+#Select count(distinct round(decimalLatitude,3),round(decimalLongitude,3)),genus as Genus, specificEpithet as Species FROM planthosts group by concat(genus,specificEpithet);
+
+###########echo "Select count(distinct round(decimalLatitude,3),round(decimalLongitude,3)),genus as Genus, specificEpithet as Species FROM planthosts group by concat(genus,specificEpithet);" | mysql -u root -D AOE > ~/Desktop/all.tsv
+update planthosts set stateProvince ='new mexico' where stateProvince ='new mexica';
+
+update planthosts set specificEpithet='illinoinensis' where specificEpithet='illinoensis';
+update planthosts set specificEpithet='fasciculatum' where specificEpithet='fasiculatum';
+
+#echo "select distinct concat(genus,specificEpithet),stateProvince,round(decimalLatitude,3),round(decimalLongitude,3) from planthosts;" | mysql -u root -D AOE > ~/Desktop/stateCheck.txt
+
+#echo "Select count(distinct round(decimalLatitude,3),round(decimalLongitude,3)),genus as Genus, specificEpithet as Species FROM planthosts group by concat(genus,specificEpithet);" | mysql -u root -D AOE > ~/Desktop/counts.txt
+
+SELECT genus,specificEpithet, coreid, count(coreid) as cnt FROM planthosts GROUP BY coreid HAVING cnt > 1
+
+########################################
+Delete records with lat/long in the ocean or outside of US, Mexico, United States
+#echo "select coreid,country,stateProvince,locality,decimalLatitude,decimalLongitude from planthosts order by decimalLongitude desc limit 200;" | mysql -u root -D AOE > ~/Desktop/Latitude.txt
+
+Delete from planthosts where coreid="40cb50a2-caa3-4ab4-9549-149ed6a1baf7";
+Delete from planthosts where coreid="b03f7816-30ea-416c-af4b-ea755cfbf137";
+Delete from planthosts where coreid="aa56fd68-5ab8-4436-97ec-393f4c6ee290";
+Delete from planthosts where coreid="98654de5-eb28-490d-83be-efefac6df033";
+Delete from planthosts where coreid="04918960-e652-4856-86f5-2a1f9efd5b1b";
+Delete from planthosts where coreid="05041234-203d-4ef1-a446-17679b50b6d7";
+Delete from planthosts where coreid="66a0f68e-4ff4-4f16-8ff7-a3cfbc4a068f";
+Delete from planthosts where coreid="72512b9f-0704-4c54-b60e-0828bac609c1";
+
+Delete from planthosts where coreid="92264205-ac4d-4da3-916c-efea6273e3bf";
+Delete from planthosts where coreid="7433454a-d3f8-4361-9e80-25e778ebebd5";
+Delete from planthosts where coreid="974fa7b2-007c-47eb-bf81-0874f42840d4";
+Delete from planthosts where coreid="00380fb1-1f59-418a-8c05-447eaab67a58";
+Delete from planthosts where coreid="8d56ccc3-d331-4ca0-8123-26f6082ca9e0";
+Delete from planthosts where coreid="f7f18c82-f30b-4f74-bc62-b5d030d5ad92";
+Delete from planthosts where coreid="ae80d898-34c7-4faa-9e5f-4f8b0071841f";
+
+Delete from planthosts where coreid="2948f79e-8ba9-4bb0-aa05-d7ab55083006";
+Delete from planthosts where coreid="bfb0a05f-07c0-4ac9-93e5-54656721cef2";
+Delete from planthosts where coreid="33f1bdcb-07b1-499d-8b28-1668c842a9fa";
+Delete from planthosts where coreid="baaa4f16-ac86-4a57-9a27-a8a9e4bbd49f";
+Delete from planthosts where coreid="ee990816-6f07-4aa0-bd3a-f21ab6116d48";
+Delete from planthosts where coreid="1abe6956-79cb-410f-a7c8-e3043dbfec79";
+Delete from planthosts where coreid="3b6a302e-3dec-4f0a-b6ff-73406922e292";
+
+Delete from planthosts where coreid="87e0b505-4af1-4330-a52b-39817a55aa56";
+Delete from planthosts where coreid="aff7594e-27a1-47d4-81a7-cf23d9fae0a8";
+Delete from planthosts where coreid="e72f7640-7b63-4fbd-8d7c-cccc48a43331";
+Delete from planthosts where coreid="d5a33987-1426-4460-94d1-9c5109b24d55";
+Delete from planthosts where coreid="bf44de44-9069-4d27-8e1a-a2650e908b11";
+Delete from planthosts where coreid="b36e0bb5-07f8-4b90-bc77-d7b703d8b046";
+
+Delete from planthosts where coreid="cce0eb90-5f48-4ec8-a039-ff41b3cf3646";
+Delete from planthosts where coreid="cec508e0-cce6-44ec-9be7-66bcce98ccba";
+Delete from planthosts where coreid="a5601dd3-9d17-4275-9e46-906bf4eaf3e8";
+Delete from planthosts where coreid="0526a477-0eb8-42d6-af81-8518497eff2e";
+Delete from planthosts where coreid="777345f0-79b0-4c13-a586-8c9c7c1e997d";
+Delete from planthosts where coreid="5542cba8-5fc4-499c-9f9b-c9d37388f477";
+Delete from planthosts where coreid="b09126a1-25be-479d-9ec8-c13a91d30fc3";
+
+Delete from planthosts where coreid="d16e9720-0c9c-423c-b45e-7c3829bd9b71";
+Delete from planthosts where coreid="047d0da9-996c-473e-84e1-0feb81b20862";
+Delete from planthosts where coreid="053020c3-be13-483b-b047-32e1729bf0f7";
+Delete from planthosts where coreid="2c840d57-50ef-470c-b452-47fe8b85134f";
+Delete from planthosts where coreid="664fd026-a81f-4d38-89b1-0794452b19df";
+Delete from planthosts where coreid="a957a3d3-6bfe-4387-ab4c-d390e45d53be";
+Delete from planthosts where coreid="074bf86f-0b11-41c1-8806-c90e8b61fe7a";
+
+Delete from planthosts where coreid="6fcb18b5-0193-4dd2-9ffe-038ddd41d1b6";
+Delete from planthosts where coreid="522ed1b7-d8dc-4635-afb2-fb3fad48e159";
+Delete from planthosts where coreid="387d0b1e-9ae2-4b0d-aa75-7144f2e50ff6";
+Delete from planthosts where coreid="d05c20ac-89e1-462e-8232-7f678095070f";
+Delete from planthosts where coreid="2c992375-767b-4bf2-92dc-160102c0761a";
+Delete from planthosts where coreid="47cf5521-e9ca-435d-a080-b4b8083a1585";
+Delete from planthosts where coreid="abb9c8a7-0ff0-41fa-8dbb-6334975ee3cb";
+Delete from planthosts where coreid="2bcab1f9-7f5f-4614-8c51-9a6bc0eeeb6e";
+
+Delete from planthosts where coreid="7da172f3-8bbe-4cdb-a8a5-6158d0fcb3a6";
+Delete from planthosts where coreid="ad23783c-982f-48ae-9f74-54048a4a39d6";
+Delete from planthosts where coreid="825531a5-9536-4320-8cea-b976aedc33f5";
+Delete from planthosts where coreid="9324203c-145c-49a5-bd33-1535f2d54537";
+Delete from planthosts where coreid="3a0e59e0-10e4-4390-afb7-63395cf449bf";
+Delete from planthosts where coreid="8b56167f-60d1-4df6-b629-38ed101dcd01";
+Delete from planthosts where coreid="0ac7fc69-ee11-4f5d-8e24-e48dbc6b0886";
+Delete from planthosts where coreid="69b4043e-def8-429e-988c-1ecb423404fe";
+Delete from planthosts where coreid="8283443b-d560-4e7f-bfab-bce0db515f48";
+Delete from planthosts where coreid="71478668-57bd-4ebd-a4e1-59a7562d8a50";
+Delete from planthosts where coreid="b63644e7-be30-4413-8508-2e05066126d2";
+Delete from planthosts where coreid="0980b5e3-56fc-4df0-bc5e-283a2875ec1c";
+Delete from planthosts where coreid="b83ecb30-116e-479b-a59f-3bbe23f027c9";
+Delete from planthosts where coreid="11007e89-83d4-41be-bd9d-ddf8ec1dac13";
+Delete from planthosts where coreid="282b2630-c81a-4561-8fd0-3578da3867f2";
+Delete from planthosts where coreid="2246e7e9-4e4a-42e6-bf1c-10c0f9248b03";
+Delete from planthosts where coreid="13a87e24-4639-4377-a991-993c2fb16447";
+Delete from planthosts where coreid="8bdca19a-4f26-4e30-b0f6-601c9c5bfe7b";
+Delete from planthosts where coreid="22806d09-fe75-4561-ae37-f55b0f77c2ca";
+Delete from planthosts where coreid="35221a9b-bbab-4a88-ad3f-14309018777b";
+Delete from planthosts where coreid="0ac5434d-d29d-47d5-9050-d18ed9fd9886";
+Delete from planthosts where coreid="8bcdfc43-c53d-4e53-91ef-3d0961b50e1a";
+Delete from planthosts where coreid="9691227e-3640-44d0-a7ac-c11f18ee1872";
+Delete from planthosts where coreid="4b8dff92-5b44-4b96-9eff-6578e9214a23";
+Delete from planthosts where coreid="d395f32f-8bef-4df9-92bd-dcddb94ed491";
+Delete from planthosts where coreid="368f8689-a7e8-499a-85d3-62479eacf3b2";
+Delete from planthosts where coreid="a3a37c5f-39b0-4437-9f6a-e6e49339a99e";
+Delete from planthosts where coreid="d71c535b-db7c-4ce9-96cb-7e365d7b76a8";
+Delete from planthosts where coreid="f25b87f7-be32-4559-9337-a37e79ad410d";
+Delete from planthosts where coreid="708d88dc-42db-40cf-b8df-c0d433ac699f";
+Delete from planthosts where coreid="921e8d3c-8a9e-47f7-be8a-20acea1a6323";
+Delete from planthosts where coreid="e45af9db-2335-48a2-a14f-7dfefa1d4d17";
+Delete from planthosts where coreid="7316d0ea-68dd-4c1e-bc3a-120105ab8bb1";
+Delete from planthosts where coreid="1ab42831-b3f3-4c69-aeb6-876e6d2c4b8a";
+Delete from planthosts where coreid="e5713c82-9eb4-4f88-902a-2ab1181e2766";
+Delete from planthosts where coreid="60e64550-eab4-4065-9e0e-7683cca0efce";
+Delete from planthosts where coreid="d9080afa-5c35-49f7-8fcc-3e88fe85e549";
+Delete from planthosts where coreid="a0b1a14f-9b47-4cff-910b-209d48728aa3";
+Delete from planthosts where coreid="ae5b28e0-6c35-43f9-99bb-21deaa118958";
+Delete from planthosts where coreid="9479a1d2-63be-4bfe-9929-ef8f898aece2";
+Delete from planthosts where coreid="a25f88dc-3f16-4a2d-87bd-a0057eb4f414";
+Delete from planthosts where coreid="16b0b6ab-deec-4957-ac23-ce8127cf4b07";
+Delete from planthosts where coreid="13bc53c0-f582-4168-a4a5-4266421d6e48";
+Delete from planthosts where coreid="d821989c-c27c-42b9-bda5-ed338b9f6dee";
+Delete from planthosts where coreid="65b2e87f-0f22-4245-8592-72b992987c45";
+Delete from planthosts where coreid="ee4fde8e-a671-4ba0-88a7-324efbcef7bc";
+Delete from planthosts where coreid="5d6bd2c2-a7a4-48f2-af60-223be7b4d50e";
+Delete from planthosts where coreid="dd471fe4-2d22-43a1-8adb-96b053869be7";
+Delete from planthosts where coreid="ffb9b431-afd1-4695-bf24-b26c62ecda63";
+Delete from planthosts where coreid="507baaf0-932c-4b84-a82a-33901b48bc40";
+Delete from planthosts where coreid="86b6b36b-71d1-4c13-affe-96ff9b864969";
+Delete from planthosts where coreid="8160bed6-b084-458f-8779-d8dd556f917c";
+Delete from planthosts where coreid="2ee207e4-55d2-4cd0-a1d1-c2da1276ec9c";
+Delete from planthosts where coreid="1d8d16ae-afdc-4421-87e3-437d69911f79";
+Delete from planthosts where coreid="290115a5-5c1c-4bce-a8e1-488ccebaf146";
+Delete from planthosts where coreid="d0e93ad6-acc8-49ba-a5f0-4cb26ce735f9";
+Delete from planthosts where coreid="f1a57461-8ffc-43d1-9309-9e7853a0d094";
+Delete from planthosts where coreid="2d6d4b50-1cc4-430e-bcbb-a4c156a5b5b2";
+Delete from planthosts where coreid="9ba6d221-0edf-46b6-abec-8d873055495c";
+Delete from planthosts where coreid="0a6b4647-4c80-454c-afc2-b8a08c56fa61";
+Delete from planthosts where coreid="291ae585-9557-470d-a180-da3cb292292e";
+Delete from planthosts where coreid="c9389cf0-c066-412c-a9ca-4ec0aa38cb2b";
+Delete from planthosts where coreid="53bb305c-d954-46d8-b5c1-48d33cb25854";
+
+Delete records with lat/long in the ocean or outside of US, Mexico, United States
+#echo "select coreid,country,stateProvince,locality,decimalLatitude,decimalLongitude from planthosts order by decimalLatitude asc limit 200;" | mysql -u root -D AOE > ~/Desktop/Latitude.txt
+Delete from planthosts where coreid="6a206246-8a54-4c04-94e9-1a87d5b6ea50";
+Delete from planthosts where coreid="7e6b2548-6de1-49ce-a526-05dcb0da90df";
+Delete from planthosts where coreid="5b5e6941-e045-456a-a9d7-fca90281754c";
+
+
+#echo "select coreid,country,stateProvince,locality,decimalLatitude,decimalLongitude from planthosts order by decimalLatitude asc limit 200;" | mysql -u root -D AOE > ~/Desktop/Latitude.txt
+Delete from planthosts where coreid="0804c190-1ee8-4296-9ca7-c45f28a0df77";
+Delete from planthosts where coreid="cd977cfb-453e-4119-967c-d32a8337a534";
+Delete from planthosts where coreid="0aac2955-5c49-4e78-a708-7752fe5d97f6";
+Delete from planthosts where coreid="a5742f53-2a49-4555-96d0-070976d8bab5";
+Delete from planthosts where coreid="2329214f-22f9-43ae-9030-229d280bde40";
+Delete from planthosts where coreid="5c68f71a-3f62-4d47-902d-75fab5e29aba";
+Delete from planthosts where coreid="4fa91407-353a-45a2-a761-8f798553deb9";
+Delete from planthosts where coreid="8519328c-a88c-40ae-8600-8412e653ff8c";
+Delete from planthosts where coreid="d6ac740f-e41f-49d5-9819-1265c31065d9";
+Delete from planthosts where coreid="c300fea7-02ac-4afa-a59a-3b8a310a99d6";
+Delete from planthosts where coreid="74ef2b23-f1bd-4d3b-a68f-7a3b48f2275d";
+Delete from planthosts where coreid="1a24204b-f77e-4796-9eb2-aad216730733";
+Delete from planthosts where coreid="1e92d039-a4af-42d3-9b6e-dfd29f44c699";
+Delete from planthosts where coreid="36b894f5-1d2e-4ad0-b975-e5defb8d1808";
+Delete from planthosts where coreid="d8812494-ab55-448b-8c38-6ee50219e45c";
+Delete from planthosts where coreid="a15d4a46-25da-4b3d-a9b5-a8bab238b675";
+Delete from planthosts where coreid="fc269f44-4bec-4155-8f51-03ec593dc6ed";
+Delete from planthosts where coreid="6e66e924-0031-45bc-a816-fe585310031d";
+Delete from planthosts where coreid="0c1009e2-bca7-4955-b9ff-45c5f02b6eb6";
+Delete from planthosts where coreid="3475fe8b-077c-4bd4-823d-914ea992592e";
+Delete from planthosts where coreid="371c5aad-dffd-4f31-9bd6-7f79ca8a6e0a";
+Delete from planthosts where coreid="883de719-f5e0-4afa-be51-0fe49aca905a";
+Delete from planthosts where coreid="aa4d947c-3f07-4420-aa23-3e58b3f119e2";
+Delete from planthosts where coreid="84c661ca-eb8d-44cc-8354-39b623436494";
+Delete from planthosts where coreid="b7bab6e4-34a8-41fc-86b3-35e58345ce4c";
+
+#echo "select coreid,country,stateProvince,locality,decimalLatitude,decimalLongitude from planthosts order by decimalLatitude desc limit 200;" | mysql -u root -D AOE > ~/Desktop/Latitude.txt
+
+#####echo "select distinct country,stateProvince,round(decimalLatitude,1),round(decimalLongitude,1) from planthosts where country='united states' order by decimalLatitude,decimalLongitude" | mysql -u root -D AOE > /Users/Irene/desktop/dropbox/NEWareaOfEndemism/code/endemismCodeKatja/plantHosts/map/stateCheck.txt
+
+#select coreid, stateProvince, locality, decimalLatitude, decimalLongitude from planthosts where stateProvince ='colorado' order by decimalLongitude asc limit 10;
+
+Delete from planthosts where coreid="27c4422d-4c68-4ffe-ab1d-2ffef67ae5db";
+
+#select coreid, stateProvince, locality, decimalLatitude, decimalLongitude from planthosts where stateProvince ='florida' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="6010b268-98d8-4771-bf5f-fc085a9f5ed7";
+Delete from planthosts where coreid="66ffdbcf-40aa-46c9-bcad-9b775fe5c8f1";
+#select coreid, stateProvince, locality, decimalLatitude, decimalLongitude from planthosts where stateProvince ='florida' order by decimalLatitude desc limit 10;
+Delete from planthosts where coreid="f39a5420-eaf7-4d4d-ac11-8d7e5d6ee264";
+
+#remove aleutian island points that are positive for longitude
+#select coreid, stateProvince, locality, decimalLatitude, decimalLongitude from planthosts where stateProvince ='alaska' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="b8c3cd90-d646-48bc-9ecf-2588a59e5ff8";
+Delete from planthosts where coreid="b99ab716-f261-4903-afa9-76f4997be1e4";
+Delete from planthosts where coreid="a5bdf348-527a-40b1-bc3a-c6648ab53d56";
+Delete from planthosts where coreid="be1f9995-e584-4055-89b7-5000fbd94fc7";
+
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='hawaii' order by decimalLatitude desc limit 10;
+Delete from planthosts where coreid="b435ee33-0e9a-4e99-b2ae-594308d5f4ae";
+Delete from planthosts where coreid="fa990b33-6dfb-4ceb-b31d-828bab2fde86";
+
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='arizona' order by decimalLongitude desc limit 10;
+Delete from planthosts where coreid="7ee4ef92-b7d5-464c-8874-ed3ac8979c5b";
+Delete from planthosts where coreid="81a410ff-42e0-477b-8793-d1bb03d7460f";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='arizona' order by decimalLatitude desc limit 10;
+Delete from planthosts where coreid="670c551e-0ceb-4510-b8ca-8871be11da2b";
+select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='arkansas' order by decimalLatitude desc limit 10;
+Delete from planthosts where coreid="2ab60be2-5097-405a-a086-871766066fe2";
+Delete from planthosts where coreid="50dbb35a-53e2-4df7-8641-6c906337e421";
+Delete from planthosts where coreid="c0f7c149-025a-4cb1-a78e-e499e3befb12";
+Delete from planthosts where coreid="e6188d68-b182-42a3-9732-b089c4b1aec9";
+Delete from planthosts where coreid="7bfdc543-3ba7-40cd-b129-fe95a9ff4eed";
+Delete from planthosts where coreid="d980822c-1586-49b0-b9cc-c152ac181fec";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='west virginia' order by decimalLongitude desc limit 10;
+Delete from planthosts where coreid="d88d5b03-d5a4-4bbb-9f84-8f0df3879dbf";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='quebec' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="feb748ae-8bb9-49c6-adf2-d56628aab6a4";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='idaho' order by decimalLongitude desc limit 10;
+Delete from planthosts where coreid="9648e1fd-2904-42df-b05d-72d27bc74cf1";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='oregon' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="ad3b1afd-683d-40c1-98b7-8db70d0e33e8";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='ohio' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="b68bf798-195c-47dc-955e-93d31702a64a";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='indiana' order by decimalLongitude desc limit 10;
+Delete from planthosts where coreid="5e298571-22d3-4181-a410-16fb6e6ef084";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='missouri' order by decimalLongitude desc limit 10;
+Delete from planthosts where coreid="5f40c2a1-558d-4c6a-a8bd-d2b28b607c6d";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='hawaii' order by decimalLo asc limit 10;
+Delete from planthosts where coreid="b435ee33-0e9a-4e99-b2ae-594308d5f4ae";
+Delete from planthosts where coreid="fa990b33-6dfb-4ceb-b31d-828bab2fde86";
+Delete from planthosts where coreid="e4b551e5-d323-4c7e-b7be-2de699d985e0";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='nebraska' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="160caae8-05ae-4a84-9286-748183787ac9";
+Delete from planthosts where coreid="ea8f769f-80e3-4e17-bd08-236366138d2a";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='texas' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="9ee6575a-1c67-4f07-a1f5-a0093c8fa818";
+Delete from planthosts where coreid="8b6631fe-714d-48fc-a824-d76018b87eff";
+Delete from planthosts where coreid="44d7276d-ff89-4078-8269-7f4da8c27176";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='north carolina' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="aad4563f-5196-4438-9e90-d3c5018998c5";
+Delete from planthosts where coreid="2e5b6a4b-a93b-48b1-913d-09e6754b226b";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='tennessee' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="a4cd736d-5a5d-4eeb-8a0a-2f49e631474f";
+Delete from planthosts where coreid="0a7ca13-0993-48c5-9eef-d04e8fd3b3a1";
+Delete from planthosts where coreid="80a7ca13-0993-48c5-9eef-d04e8fd3b3a1";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='new mexico' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="293e5838-941a-401e-a57f-c0952cfdd288";
+Delete from planthosts where coreid="da213a44-ad40-4b4a-bcc7-3a4755a3ddd1";
+
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='alabama' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="ba474b88-db2a-43f9-89c7-33cab5e6027e";
+Delete from planthosts where coreid="b73caebe-2aae-41d1-941d-388103f00f46";
+Delete from planthosts where coreid="1e05259e-3d75-42c0-9e37-833c54dd4a58";
+Delete from planthosts where coreid="a02f5233-3bed-4d79-b8f8-2b60b286c128";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='alabama' order by decimalLongitude asc limit 10;
+Delete from planthosts where coreid="ebd5e708-994b-4fcb-8d4a-10a49d36686e";
+Delete from planthosts where coreid="d0b90d70-2a13-4a81-9b3b-700bcbc24e23";
+Delete from planthosts where coreid="ab91e3a0-0ee7-4abc-b841-c581f984c49d";
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='utah' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="5aa79790-b710-46d6-a7ff-3eef21fbf9c9";
+Delete from planthosts where coreid="88967683-d315-49fb-a2ac-e0a1e1f04574";
+Delete from planthosts where coreid="45989e1e-548f-4ba8-bae7-c29434971de8";
+Delete from planthosts where coreid="19a1425e-7571-4f07-8b6d-2cb11f7098c6";
+Delete from planthosts where coreid="95983755-a1b0-4ca9-bda6-1d0fb9b6aeb4";
+Delete from planthosts where coreid="c176de87-1055-45b3-a450-8e8be534aaa4";
+Delete from planthosts where coreid="e10d7fba-aa38-4336-9e3f-6d6ec12bf405";
+Delete from planthosts where coreid="d974c16a-9c5a-4106-96bc-79ba39554181";
+
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='illinois' order by decimalLatitude asc limit 10;
+Delete from planthosts where coreid="565bb9bd-0bac-423f-9395-8e8805c2453f";
+Delete from planthosts where coreid="9db426fb-0cfc-4f15-bc29-a6a76b0fc40b";
+Delete from planthosts where coreid="40ea8b85-1985-48ab-9926-7bcadf2d6900";
+Delete from planthosts where coreid="ea744618-a2b0-4661-930c-586cabe1d708";
+Delete from planthosts where coreid="00205263-2e55-4c3b-a0be-3b9e94b79514";
+Delete from planthosts where coreid="1cea41cd-cd56-4859-bfc1-469477ea8dae";
+
+
+#select coreid, stateProvince, decimalLatitude, decimalLongitude from planthosts where stateProvince ='california' order by decimalLongitude asc limit 10;
+delete from planthosts where decimalLatitude < 32.53 and stateProvince='california';
+Delete from planthosts where coreid="b7674c86-861c-4be7-b87e-a1186c423eb1";
+Delete from planthosts where coreid="28b6e7df-2de1-4f4a-bc23-5a6cbf38b2dd";
+Delete from planthosts where coreid="f3b551ba-ab6e-4acc-9677-b40f24a7b551";
+
+
+SELECT locality FROM planthosts order by LENGTH(locality) asc limit 10;
+
+
+#updates based on MDS research below
+Update planthosts set stateProvince="coahuila" where stateProvince="coahu ila";
+Update planthosts set stateProvince="coahuila" where stateProvince="coahuila de zaragoza";
+Update planthosts set stateProvince="coahuila" where stateProvince="coahuilla";
+Update planthosts set stateProvince="mexico" where stateProvince="méxico";
+Update planthosts set stateProvince="michoacan" where stateProvince="michoacán";
+Update planthosts set stateProvince="michoacan" where stateProvince="michoacán de ocampo";
+Update planthosts set stateProvince="nuevo leon" where stateProvince="nuevo león";
+Update planthosts set stateProvince="ontario" where stateProvince="ontario province";
+Update planthosts set stateProvince="quebec" where stateProvince="quebec province";
+Update planthosts set stateProvince="queretaro" where stateProvince="querétaro de arteaga";
+Update planthosts set stateProvince="san luis potosi" where stateProvince="san luis potosí";
+
+#select coreid,stateProvince,decimalLatitude, decimalLongitude from planthosts where round(decimalLatitude,1)="44.0" and round(decimalLongitude,1)="-87.0" and stateProvince='wisconsin';
+
+delete from planthosts where round(decimalLatitude,1)="42.3" and round(decimalLongitude,1)="-86.4" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.5" and round(decimalLongitude,1)="-86.6" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-86.6" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-86.7" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42" and round(decimalLongitude,1)="-87" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.4" and round(decimalLongitude,1)="-87" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-87" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-87" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.2" and round(decimalLongitude,1)="-87.1" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-87.1" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-87.1" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-87.1" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.2" and round(decimalLongitude,1)="-87.2" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.5" and round(decimalLongitude,1)="-87.2" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-87.2" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43.1" and round(decimalLongitude,1)="-87.2" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-87.3" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-87.4" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-87.5" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-87.5" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43.2" and round(decimalLongitude,1)="-87.5" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-87.5" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-87.6" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-87.6" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-87.6" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-87.7" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="42.9" and round(decimalLongitude,1)="-87.7" and stateProvince="illinois";
+delete from planthosts where round(decimalLatitude,1)="40.7" and round(decimalLongitude,1)="-72" and stateProvince="new york";
+delete from planthosts where round(decimalLatitude,1)="44" and round(decimalLongitude,1)="-87" and stateProvince="wisconsin";
+Update planthosts set stateProvince="connecticut" where stateProvince="new london county" and round(decimalLatitude,1)="41.4" and round(decimalLongitude,1)="-72.1";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="56.6" and round(decimalLongitude,1)="-61.9";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="53.8" and round(decimalLongitude,1)="-58.4";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="53.3" and round(decimalLongitude,1)="-60.3";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="53.3" and round(decimalLongitude,1)="-60.5";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="53.3" and round(decimalLongitude,1)="-60.4";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland & labrador" and round(decimalLatitude,1)="52.9" and round(decimalLongitude,1)="-55.9";
+Update planthosts set stateProvince="labrador" where stateProvince="newfoundland and labrador" and round(decimalLatitude,1)="53" and round(decimalLongitude,1)="-60";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland" and round(decimalLatitude,1)="49.5" and round(decimalLongitude,1)="-57.8";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland" and round(decimalLatitude,1)="48.8" and round(decimalLongitude,1)="-56.5";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland" and round(decimalLatitude,1)="48.3" and round(decimalLongitude,1)="-58.8";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland and labrador" and round(decimalLatitude,1)="49.7" and round(decimalLongitude,1)="-56";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland and labrador province" and round(decimalLatitude,1)="48.5" and round(decimalLongitude,1)="-56.7";
+Update planthosts set stateProvince="newfoundland" where stateProvince="newfoundland and labrador province" and round(decimalLatitude,1)="48.1" and round(decimalLongitude,1)="-57.3";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="35.4" and round(decimalLongitude,1)="-111.6";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="34.8" and round(decimalLongitude,1)="-113.1";
+Delete from planthosts where stateProvince="louisiana" and round(decimalLatitude,1)="33.4" and round(decimalLongitude,1)="-93.1";
+Delete from planthosts where stateProvince="baja california sur" and round(decimalLatitude,1)="31.9" and round(decimalLongitude,1)="-116.1";
+Delete from planthosts where stateProvince="british columbia province" and round(decimalLatitude,1)="59.4" and round(decimalLongitude,1)="-126.1";
+Delete from planthosts where stateProvince="arizona" and round(decimalLatitude,1)="35.5" and round(decimalLongitude,1)="-115.5";
+Delete from planthosts where stateProvince="arizona" and round(decimalLatitude,1)="34.3" and round(decimalLongitude,1)="-115.9";
+Delete from planthosts where stateProvince="nevada" and round(decimalLatitude,1)="35.6" and round(decimalLongitude,1)="-115.8";
+Delete from planthosts where stateProvince="nevada" and round(decimalLatitude,1)="35" and round(decimalLongitude,1)="-115.5";
+Delete from planthosts where stateProvince="mexico" and round(decimalLatitude,1)="28.6" and round(decimalLongitude,1)="-106.1";
+Delete from planthosts where stateProvince="baja california" and round(decimalLatitude,1)="24.4" and round(decimalLongitude,1)="-106.4";
+Delete from planthosts where stateProvince="mexico" and round(decimalLatitude,1)="21.1" and round(decimalLongitude,1)="-101.3";
+Delete from planthosts where stateProvince="missouri" and round(decimalLatitude,1)="38.9" and round(decimalLongitude,1)="-89.7";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="42" and round(decimalLongitude,1)="-88";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="42" and round(decimalLongitude,1)="-89.7";
+Delete from planthosts where stateProvince="iowa" and round(decimalLatitude,1)="42.1" and round(decimalLongitude,1)="-89.3"; 
+Delete from planthosts where stateProvince="iowa" and round(decimalLatitude,1)="42.1" and round(decimalLongitude,1)="-89.4"; 
+Delete from planthosts where stateProvince="iowa" and round(decimalLatitude,1)="42.3" and round(decimalLongitude,1)="-89.4"; 
+Delete from planthosts where stateProvince="iowa" and round(decimalLatitude,1)="41" and round(decimalLongitude,1)="-90.5"; 
+Delete from planthosts where stateProvince="iowa" and round(decimalLatitude,1)="41.2" and round(decimalLongitude,1)="-90.7"; 
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.1" and round(decimalLongitude,1)="-86.5";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.3" and round(decimalLongitude,1)="-86.5";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.6" and round(decimalLongitude,1)="-86.5";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="40.8" and round(decimalLongitude,1)="-86.6";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.3" and round(decimalLongitude,1)="-86.6";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.3" and round(decimalLongitude,1)="-87.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.4" and round(decimalLongitude,1)="-87.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.6" and round(decimalLongitude,1)="-87.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41" and round(decimalLongitude,1)="-87.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.1" and round(decimalLongitude,1)="-87.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="40.8" and round(decimalLongitude,1)="-87.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.3" and round(decimalLongitude,1)="-87.4";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="41" and round(decimalLongitude,1)="-86";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="41.5" and round(decimalLongitude,1)="-86.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.9" and round(decimalLongitude,1)="-91.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.4" and round(decimalLongitude,1)="-92.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.2" and round(decimalLongitude,1)="-92.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.8" and round(decimalLongitude,1)="-92.8";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-92.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-93.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-93.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.4" and round(decimalLongitude,1)="-93.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-93.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-93.8";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="42" and round(decimalLongitude,1)="-91";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="42.5" and round(decimalLongitude,1)="-91";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.1" and round(decimalLongitude,1)="-85.6";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.5" and round(decimalLongitude,1)="-86.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="41.8" and round(decimalLongitude,1)="-86.6";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="45" and round(decimalLongitude,1)="-86";
+Delete from planthosts where stateProvince="wisconsin" and round(decimalLatitude,1)="46.7" and round(decimalLongitude,1)="-92.5";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="40.5" and round(decimalLongitude,1)="-92.1";
+Delete from planthosts where stateProvince="idaho" and round(decimalLatitude,1)="49" and round(decimalLongitude,1)="-116";
+Delete from planthosts where stateProvince="idaho" and round(decimalLatitude,1)="41.8" and round(decimalLongitude,1)="-116.3";
+Delete from planthosts where stateProvince="massachusetts" and round(decimalLatitude,1)="45.7" and round(decimalLongitude,1)="-112.4";
+Delete from planthosts where stateProvince="mississippi" and round(decimalLatitude,1)="45.7" and round(decimalLongitude,1)="-112.4";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="36.4" and round(decimalLongitude,1)="-114.5";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="39.6" and round(decimalLongitude,1)="-116.8";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="38.8" and round(decimalLongitude,1)="-117";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="38" and round(decimalLongitude,1)="-118.3";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="39.3" and round(decimalLongitude,1)="-118.3";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="38.8" and round(decimalLongitude,1)="-119.1";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="39.2" and round(decimalLongitude,1)="-119.1";
+Delete from planthosts where stateProvince="idaho" and round(decimalLatitude,1)="49" and round(decimalLongitude,1)="-115";
+Delete from planthosts where stateProvince="california" and round(decimalLatitude,1)="32.7" and round(decimalLongitude,1)="-108.9";
+Delete from planthosts where stateProvince="colorado" and round(decimalLatitude,1)="36.7" and round(decimalLongitude,1)="-105.9";
+Delete from planthosts where stateProvince="kansas" and round(decimalLatitude,1)="32.8" and round(decimalLongitude,1)="-108.6";
+Delete from planthosts where stateProvince="pennsylvania" and round(decimalLatitude,1)="42.2" and round(decimalLongitude,1)="-74.3";
+Delete from planthosts where stateProvince="pennsylvania" and round(decimalLatitude,1)="42.2" and round(decimalLongitude,1)="-74.4";
+Delete from planthosts where stateProvince="pennsylvania" and round(decimalLatitude,1)="42.2" and round(decimalLongitude,1)="-74.5";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.4" and round(decimalLongitude,1)="-86.1";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.4" and round(decimalLongitude,1)="-86.2";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.4" and round(decimalLongitude,1)="-88.1";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.4" and round(decimalLongitude,1)="-86.3";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.4" and round(decimalLongitude,1)="-86.4";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.5" and round(decimalLongitude,1)="-88.1";
+Delete from planthosts where stateProvince="michigan" and round(decimalLatitude,1)="48.5" and round(decimalLongitude,1)="-86.1";
+Delete from planthosts where stateProvince="new york" and round(decimalLatitude,1)="40.2" and round(decimalLongitude,1)="-75.9";
+Delete from planthosts where stateProvince="massachusetts" and round(decimalLatitude,1)="42.1" and round(decimalLongitude,1)="-79.9";
+Delete from planthosts where stateProvince="vermont" and round(decimalLatitude,1)="46" and round(decimalLongitude,1)="-72.8";
+Delete from planthosts where stateProvince="baja california" and round(decimalLatitude,1)="31.1" and round(decimalLongitude,1)="-112.4";
+Delete from planthosts where stateProvince="kansas" and round(decimalLatitude,1)="32.1" and round(decimalLongitude,1)="-94.7";
+Delete from planthosts where stateProvince="new mexico" and round(decimalLatitude,1)="35" and round(decimalLongitude,1)="-102.3";
+Delete from planthosts where stateProvince="nevada" and round(decimalLatitude,1)="38.6" and round(decimalLongitude,1)="-111.5";
+Delete from planthosts where stateProvince="nevada" and round(decimalLatitude,1)="39.8" and round(decimalLongitude,1)="-112.9";
+Delete from planthosts where stateProvince="nevada" and round(decimalLatitude,1)="41.4" and round(decimalLongitude,1)="-113.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="44" and round(decimalLongitude,1)="-87.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-87.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-88";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-88";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-88";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.6" and round(decimalLongitude,1)="-88";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.6" and round(decimalLongitude,1)="-88.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.7" and round(decimalLongitude,1)="-88.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-88.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-88.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-88.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-88.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-88.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-88.6";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-88.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-88.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-88.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.9" and round(decimalLongitude,1)="-88.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-88.7";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-88.8";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-88.8";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-88.8";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.7" and round(decimalLongitude,1)="-88.8";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.8" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.9" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.2" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.6" and round(decimalLongitude,1)="-88.9";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-89";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43" and round(decimalLongitude,1)="-89";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.1" and round(decimalLongitude,1)="-89";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-89";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-89.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.7" and round(decimalLongitude,1)="-89.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.1" and round(decimalLongitude,1)="-89.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-89.1";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.6" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="42.9" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.1" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.2" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.3" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.4" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-89.2";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.2" and round(decimalLongitude,1)="-89.3";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.1" and round(decimalLongitude,1)="-89.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-89.4";
+Delete from planthosts where stateProvince="illinois" and round(decimalLatitude,1)="43.5" and round(decimalLongitude,1)="-89.5";
+Delete from planthosts where stateProvince="minnesota" and round(decimalLatitude,1)="45.2" and round(decimalLongitude,1)="-90";
+
