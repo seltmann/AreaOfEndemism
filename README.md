@@ -14,7 +14,7 @@ Please contact Katja C. Seltmann (enicospilus@gmail.com) @seltmann if you have a
 * geoCheck.R: maps geocoordinates by state to help look for outlying data points.
 stateCheck.txt:
 
-#plantHosts Folder
+##plantHosts Folder
 #host-analysis Folder:
 host_network_species.php:
 * matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded to three decimal points.
