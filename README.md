@@ -4,41 +4,31 @@ This is the repository of code associated with the publication: Areas of endemis
 
 Please contact Katja C. Seltmann (enicospilus@gmail.com) @seltmann if you have any questions about the data and code in this repository.
 
-##DESCRIPTION OF INCLUDED CODE 
+##Description of code and text files included in this repository
 
-##localityMatrix Folder
+##localityMatrix folder
 * matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded to three decimal points.
-###map-bug-data folder
-* MappingStateCheck.php:
-* geoCheck.R: maps geocoordinates by state to help look for outlying data points.
-stateCheck.txt:
 
-##plantHosts Folder
-###host-analysis Folder:
+##plantHosts folder
+###host-analysis folder:
 * matrixOnlyLocalityRounded.php: formats interested localities and taxa from AEC in matrix format, rounded to three decimal points.
-* forMatrixPlantRounded.txt:
-* forMatrixNA5_RoundedTaxaList:
-* decision_network_confidence_species.php: applies confidence interval to those insect/host relationships.
-* host_network_species.php: finds relationship hypothesis between plants and plant bugs
+* forMatrixPlantRounded.txt: Resulting matrix for default dataset used in NDM/VNDM analyses
+* forMatrixNA5_RoundedTaxaList: List of unique Miridae taxa included in default NDM/VNDM analysis. 
+* decision_network_confidence_species.php: applies confidence interval to those insect/host relationships. Results from this analysis are entered in the AOE database/planthosts table.
+* host_network_species.php: finds relationship hypothesis between plants and plant bugs. Results from this analysis are entered in the AOE database/planthosts table.
 
-###map-plant-data Folder:
-* geoCheck.R
-* stateCheck.txt
-
-###plant-data-idigbio Folder:
+###plant-data-idigbio folder:
 * geoAPI.R: retrieves all of the plant data from iDigBio using genus and species fields that has coordinates. Then formats it by removing all unnecessary additional fields.
-updates-planthosts-table.txt
-updatesPlantHostsSynonyms.txt
-plantHostsAllData_v2.txt:
-
+* updates-planthosts-table.txt: Updates performed on the AEC MySQL database.
+* updatesPlantHostsSynonyms.txt: Updates performed on the AEC MySQL database.
+* plantHostsAllData_v2.txt: Text copy of data found in the AOE MySQL planthosts table.
 
 ##DESCRIPTION OF MySQL Database:
-Based on the default parameters used in this analysis, the entire AOE database available through figshare (doi: 10.6084/m9.figshare.2060979), represents a subset of the AMNH instance of the AEC database, which includes additional tables to capture host plant data and host analysis.
+Based on the default parameters used in this analysis, the entire AOE database available through figshare (doi: 10.6084/m9.figshare.2060979), represents a subset of the AMNH instance of the AEC database. The AOE database includes only the cleaned, updated, and analyzed versions of the Miridae and host plant data.
 
-1) Miridae subFamily(id) =Mirinae(id:8150), Orthotylinae(id:6294), Phylinae(id:6295), Deraeocorinae(id:8163) from AEC database sql.
-2) geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
-3) complete plant host analysis
-4) cleaned plant host data
+Data Parameters and associated ids are:
+* Miridae subFamily(id) =Mirinae(id:8150), Orthotylinae(id:6294), Phylinae(id:6295), Deraeocorinae(id:8163) from AEC database sql.
+* geographic range: North America Country.UID = Canada(id:2),Mexico(id:8),USA(id:11)
 
 >Seltmann, K.C.. 2016. AOE analysis subset of the Arthropod Easy Capture (AEC) database. [Accessed: 06 Jan 2016]. figshare. doi: https://dx.doi.org/10.6084/m9.figshare.2060979
 
