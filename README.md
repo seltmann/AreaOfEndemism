@@ -32,5 +32,7 @@ Data Parameters and associated ids are:
 
 >Seltmann, K.C.. 2016. AOE analysis subset of the Arthropod Easy Capture (AEC) database. [Accessed: 06 Jan 2016]. figshare. doi: https://dx.doi.org/10.6084/m9.figshare.2060979
 
+>Seltmann, K.C.. 2016. AOE analysis software. [Accessed: 06 Jan 2016]. zendo. doi: https://dx.doi.org/10.5281/zenodo.44387
+
 
 
